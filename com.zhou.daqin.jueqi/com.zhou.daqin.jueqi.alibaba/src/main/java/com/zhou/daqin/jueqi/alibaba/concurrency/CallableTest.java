@@ -11,14 +11,7 @@ public class CallableTest {
 	        ExecutorService executor = Executors.newCachedThreadPool();
 	        Task task = new Task();
 	        Future<Integer> result = executor.submit(task);
-	        executor.shutdown();
-	         
-	        try {
-	            Thread.sleep(1000);
-	        } catch (InterruptedException e1) {
-	            e1.printStackTrace();
-	        }
-	         
+
 	        System.out.println("主线程在执行任务");
 	         
 	        try {
@@ -28,6 +21,7 @@ public class CallableTest {
 	        } catch (ExecutionException e) {
 	            e.printStackTrace();
 	        }
+		    executor.shutdown();
 	         
 	        System.out.println("所有任务执行完毕");
 	    }

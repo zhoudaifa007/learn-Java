@@ -1,4 +1,4 @@
-package com.zhou.daqin.jueqi.alibaba.concurrency;
+package com.zhou.daqin.jueqi.alibaba.thread;
 
 public class MyThread0 extends Thread {
 

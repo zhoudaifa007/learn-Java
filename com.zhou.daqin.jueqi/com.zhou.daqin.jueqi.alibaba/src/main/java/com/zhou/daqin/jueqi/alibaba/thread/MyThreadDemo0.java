@@ -1,4 +1,4 @@
-package com.zhou.daqin.jueqi.alibaba.concurrency;
+package com.zhou.daqin.jueqi.alibaba.thread;
 
 public class MyThreadDemo0 {
     public static void main(String[] args) {
