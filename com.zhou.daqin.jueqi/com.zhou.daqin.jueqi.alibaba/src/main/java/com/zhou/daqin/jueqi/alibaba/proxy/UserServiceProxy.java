@@ -5,17 +5,17 @@ package com.zhou.daqin.jueqi.alibaba.proxy;
  */
 public class UserServiceProxy implements UserService {
 
-    private UserServiceImpl userImpl;
+    private UserService userService;
 
-    public UserServiceProxy(UserServiceImpl countImpl) {
-        this.userImpl = countImpl;
+    public UserServiceProxy(UserService userService) {
+        this.userService = userService;
     }
 
     public void addUser() {
         System.out.println("代理类方法，进行了增强。。。");
         System.out.println("事务开始。。。");
         // 调用委托类的方法;
-        userImpl.addUser();
+        userService.addUser();
         System.out.println("处理结束。。。");
     }
 
@@ -24,7 +24,7 @@ public class UserServiceProxy implements UserService {
         System.out.println("代理类方法，进行了增强。。。");
         System.out.println("事务开始。。。");
         // 调用委托类的方法;
-        userImpl.editUser();
+        userService.editUser();
         System.out.println("事务结束。。。");
     }
 
