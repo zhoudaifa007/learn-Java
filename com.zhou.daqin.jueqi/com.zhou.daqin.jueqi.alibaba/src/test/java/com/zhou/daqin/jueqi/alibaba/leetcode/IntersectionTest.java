@@ -3,12 +3,12 @@ package com.zhou.daqin.jueqi.alibaba.leetcode;
 import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringRunner;
+
 
 /**
  * Created by zhoudf2 on 2017-7-9.
  */
-@RunWith(SpringRunner.class)
+
 public class IntersectionTest {
 
     @Test

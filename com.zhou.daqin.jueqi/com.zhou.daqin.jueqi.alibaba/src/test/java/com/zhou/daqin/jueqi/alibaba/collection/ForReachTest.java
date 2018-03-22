@@ -2,8 +2,7 @@ package com.zhou.daqin.jueqi.alibaba.collection;
 
 import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringRunner;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.UUID;
 /**
  * Created by ZHOUDF2 on 2017-8-17.
  */
-@RunWith(SpringRunner.class)
+
 public class ForReachTest {
 
     @Test

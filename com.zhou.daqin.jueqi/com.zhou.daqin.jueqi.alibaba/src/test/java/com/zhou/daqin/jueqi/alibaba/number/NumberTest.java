@@ -1,16 +1,10 @@
 package com.zhou.daqin.jueqi.alibaba.number;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringRunner;
-
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by zhoudf2 on 2018-2-25.
- */
-@RunWith(SpringRunner.class)
+
 public class NumberTest {
 
     @Test
