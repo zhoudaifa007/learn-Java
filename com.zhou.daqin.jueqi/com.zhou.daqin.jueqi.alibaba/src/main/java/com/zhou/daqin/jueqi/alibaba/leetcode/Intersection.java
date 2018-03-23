@@ -17,7 +17,7 @@ public class Intersection {
         int[] arr = new int[0];
         int index1 = 0;
         int index2 = 0;
-        Set<Integer> set = new HashSet<>();
+        Set<Integer> set = new HashSet<Integer>();
 
         while(index1 < nums1.length && index2 < nums2.length)
         {
