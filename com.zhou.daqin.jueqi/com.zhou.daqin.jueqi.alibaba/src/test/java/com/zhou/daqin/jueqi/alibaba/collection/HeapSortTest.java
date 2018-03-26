@@ -21,4 +21,11 @@ public class HeapSortTest {
         HeapSort.sort(array);
         System.out.println(JSONObject.toJSONString(array));
     }
+
+    @Test
+    public void test3() {
+        int[] array = {5, 1, 9, 3, 7,4,8,6,2};
+        HeapSort.sort(array);
+        System.out.println(JSONObject.toJSONString(array));
+    }
 }
