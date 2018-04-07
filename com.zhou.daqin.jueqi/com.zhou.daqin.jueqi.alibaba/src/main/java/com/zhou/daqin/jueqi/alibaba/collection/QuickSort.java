@@ -1,52 +1,66 @@
 package com.zhou.daqin.jueqi.alibaba.collection;
 
+import java.util.Random;
+
 /**
  * Created by Daifa on 2018/3/27.
  */
 public class QuickSort {
 
-    private static boolean isEmpty(int[] n) {
-        return n == null || n.length == 0;
-    }
 
-    // ///////////////////////////////////////////////////
-
-    /**
-     * 快速排序算法思想——挖坑填数方法：
-     *
-     * @param n 待排序的数组
-     */
     public static void quickSort(int[] n) {
-        if (isEmpty(n))
+        if (n == null || n.length == 0)
             return;
         quickSort(n, 0, n.length - 1);
     }
 
-    public static void quickSort(int[] n, int l, int h) {
-        if (isEmpty(n))
+    public static void quickSort(int[] array, int start, int end) {
+        if (start == end)
             return;
-        if (l < h) {
-            int pivot = partion(n, l, h);
-            quickSort(n, l, pivot - 1);
-            quickSort(n, pivot + 1, h);
+
+        int pivot = partion(array, start, end);
+
+        if (pivot > start) {
+            quickSort(array, start, pivot - 1);
         }
+
+        if (pivot < end) {
+            quickSort(array, pivot + 1, end);
+        }
+
     }
 
-    private static int partion(int[] n, int start, int end) {
-        int tmp = n[start];
-        while (start < end) {
-            while (n[end] >= tmp && start < end)
-                end--;
-            if (start < end) {
-                n[start++] = n[end];
-            }
-            while (n[start] < tmp && start < end)
-                start++;
-            if (start < end) {
-                n[end--] = n[start];
+    private static int partion(int[] array, int start, int end) {
+
+        int index = getRandom(start, end);
+        swap(array, index, end);
+        int small = start - 1;
+
+        for (index = start; index < end; ++index) {
+            if (array[index] < array[end]) {
+                ++small;
+                if (small != index) {
+                    swap(array, index, small);
+                }
             }
         }
-        n[start] = tmp;
-        return start;
+        ++small;
+        swap(array, small, end);
+        return small;
     }
+
+    //交换数组元素
+    private static void swap(int[] array, int index1, int index2) {
+        int temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
+    }
+
+    //获取[min,max]范围的随机数
+    private static int getRandom(int min, int max) {
+        Random random = new Random();
+        return random.nextInt(max - min + 1) + min;
+    }
+
+
 }
