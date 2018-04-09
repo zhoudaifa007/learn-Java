@@ -10,7 +10,7 @@ public class StaticProxyTest {
     @Test
     public void test1()
     {
-        UserServiceImpl userImpl = new UserServiceImpl();
+        UserService userImpl = new UserServiceImpl();
         UserServiceProxy proxy = new UserServiceProxy(userImpl);
         proxy.addUser();
         System.out.println("------分割线--------");
