@@ -33,6 +33,7 @@ public class QuickSort {
     private static int partion(int[] array, int start, int end) {
 
         int index = getRandom(start, end);
+        //将最后一个位置当做临时变量
         swap(array, index, end);
         int small = start - 1;
 
