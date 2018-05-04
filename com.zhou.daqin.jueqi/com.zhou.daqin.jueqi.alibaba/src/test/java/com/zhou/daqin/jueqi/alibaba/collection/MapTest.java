@@ -1,8 +1,9 @@
 package com.zhou.daqin.jueqi.alibaba.collection;
 
 import com.alibaba.fastjson.JSONObject;
+import net.sf.cglib.core.CollectionUtils;
 import org.junit.Test;
-import org.springframework.util.CollectionUtils;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +22,7 @@ public class MapTest {
         req.setName("xiaoshaoyong");
         List<MapReq> list = new ArrayList<>();
         Map<String,Object> map = new HashMap<String,Object>();
-        if(!CollectionUtils.isEmpty(list)) {
+        {
             map = list.stream().collect(
                     Collectors.toMap(MapReq::getName, MapReq::getValue));
         }
