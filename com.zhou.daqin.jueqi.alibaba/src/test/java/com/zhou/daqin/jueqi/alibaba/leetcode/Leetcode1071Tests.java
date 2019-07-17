@@ -19,4 +19,12 @@ public class Leetcode1071Tests {
         String res = leetcode1071.gcdOfStrings(str1, str2);
         System.out.println("ok");
     }
+
+    @Test
+    public void test3() {
+        String str1 = "LEET", str2 = "CODE";
+        Leetcode1071 leetcode1071 = new Leetcode1071();
+        String res = leetcode1071.gcdOfStrings(str1, str2);
+        System.out.println("ok");
+    }
 }
