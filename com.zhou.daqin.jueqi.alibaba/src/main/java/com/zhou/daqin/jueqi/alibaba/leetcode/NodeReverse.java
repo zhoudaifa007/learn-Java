@@ -5,15 +5,15 @@ package com.zhou.daqin.jueqi.alibaba.leetcode;
  */
 public class NodeReverse {
 
-    class Node {
+    class InnerNode {
         char value;
-        Node next;
+        InnerNode next;
     }
 
-    public Node reverse(Node current) {
+    public InnerNode reverse(InnerNode current) {
         //initialization
-        Node previousNode = null;
-        Node nextNode = null;
+        InnerNode previousNode = null;
+        InnerNode nextNode = null;
 
         while (current != null) {
             //save the next node
@@ -27,11 +27,11 @@ public class NodeReverse {
         return previousNode;
     }
 
-    public Node reverseRecur(Node current) {
+    public InnerNode reverseRecur(InnerNode current) {
         if (current == null || current.next == null) return current;
-        Node nextNode = current.next;
+        InnerNode nextNode = current.next;
         current.next = null;
-        Node reverseRest = reverseRecur(nextNode);
+        InnerNode reverseRest = reverseRecur(nextNode);
         nextNode.next = current;
         return reverseRest;
     }

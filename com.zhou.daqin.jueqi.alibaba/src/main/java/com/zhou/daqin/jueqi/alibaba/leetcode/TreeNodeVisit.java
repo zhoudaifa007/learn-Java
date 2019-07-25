@@ -1,5 +1,7 @@
 package com.zhou.daqin.jueqi.alibaba.leetcode;
 
+import com.zhou.daqin.jueqi.alibaba.common.TreeNode;
+
 import java.util.*;
 
 /**
@@ -166,21 +168,5 @@ public class TreeNodeVisit {
         return resultList;
     }
 
-
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-
-        @Override
-        public String toString() {
-            return "val: " + val;
-        }
-    }
 
 }
