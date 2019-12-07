@@ -30,7 +30,7 @@ public class Leetcode671 {
     private void inorderTranversal(TreeNode node, Set<Integer> set) {
         if (node == null) {
             return;
-        }g'it'
+        }
         inorderTranversal(node.left, set);
         set.add(node.val);
         inorderTranversal(node.right, set);
