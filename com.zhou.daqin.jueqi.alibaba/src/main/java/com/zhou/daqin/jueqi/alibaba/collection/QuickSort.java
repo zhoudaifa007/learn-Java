@@ -7,7 +7,6 @@ import java.util.Random;
  */
 public class QuickSort {
 
-
     public static void quickSort(int[] n) {
         if (n == null || n.length == 0)
             return;
@@ -17,7 +16,6 @@ public class QuickSort {
     public static void quickSort(int[] array, int start, int end) {
         if (start == end)
             return;
-
         int pivot = partion(array, start, end);
 
         if (pivot > start) {
@@ -27,11 +25,9 @@ public class QuickSort {
         if (pivot < end) {
             quickSort(array, pivot + 1, end);
         }
-
     }
 
     private static int partion(int[] array, int start, int end) {
-
         int index = getRandom(start, end);
         //将最后一个位置当做临时变量
         swap(array, index, end);
@@ -60,8 +56,7 @@ public class QuickSort {
     //获取[min,max]范围的随机数
     private static int getRandom(int min, int max) {
         Random random = new Random();
+        //nextInt左闭右开[0,n)
         return random.nextInt(max - min + 1) + min;
     }
-
-
 }
