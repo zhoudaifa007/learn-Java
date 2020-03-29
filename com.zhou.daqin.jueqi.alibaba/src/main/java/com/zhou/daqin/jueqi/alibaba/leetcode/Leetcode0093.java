@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Leetcode0093 {
     public List<String> restoreIpAddresses(String s) {
-        System.out.println("---------------------");
         List<String> ret = new LinkedList<>();
         int[] path = new int[4];
         helper(ret, s, 0,  path, 0);
