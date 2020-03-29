@@ -93,8 +93,9 @@ public class Leetcode0377 {
      */
     public int combinationSum4GetList(int[] nums, int target) {
         List<List<Integer>> res = new ArrayList<>();
+        Arrays.sort(nums);
         helper2(nums, target, res, new ArrayList<>());
-        res.forEach( t -> System.out.println(JSON.toJSONString(t)));
+        res.forEach(t -> System.out.println(JSON.toJSONString(t)));
         return res.size();
     }
 

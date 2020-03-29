@@ -6,6 +6,11 @@ import java.util.List;
 
 public class Leetcode0047 {
 
+    /**
+     * permute 剔重
+     * @param nums
+     * @return
+     */
     public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> res  = new ArrayList<>();
         Arrays.sort(nums);

@@ -10,6 +10,13 @@ public class Leetcode0078 {
         return res;
     }
 
+    /**
+     * 属于combination
+     * @param nums
+     * @param index
+     * @param res
+     * @param cur
+     */
     private void subHelper(int[] nums, int index, List<List<Integer>> res, List<Integer> cur) {
         res.add(new ArrayList<>(cur));
         for(int i = index; i < nums.length; i++) {
