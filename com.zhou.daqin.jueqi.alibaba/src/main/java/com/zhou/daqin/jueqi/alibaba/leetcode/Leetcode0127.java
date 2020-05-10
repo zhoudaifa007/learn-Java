@@ -24,17 +24,15 @@ public class Leetcode0127 {
         Set<String> checked = new HashSet();
 
         while(!queue.isEmpty()) {
-            Node word = queue.remove();
-
+            Node word = queue.poll();
             if(word.val.equals(endWord)) {
                 return word.level + 1;
             }
 
             for(String w : wordList) {
-                String key = w;
-                if(!checked.contains(key) && isOnlyOneLetterDifference(w, word.val) ) {
+                if(!checked.contains(w) && isOnlyOneLetterDifference(w, word.val) ) {
                     queue.add(new Node(w, word.level + 1));
-                    checked.add(key);
+                    checked.add(w);
                 }
             }
         }

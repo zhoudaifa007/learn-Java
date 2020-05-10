@@ -27,4 +27,14 @@ public class Leetcode0207Tests {
         boolean flag = leetcode0207.canFinish(3, array);
         System.out.println(flag);
     }
+
+    @Test
+    public void test3() {
+        Leetcode0207 leetcode0207 = new Leetcode0207();
+        int[][] array = {
+                {1,0}
+        };
+        boolean flag = leetcode0207.canFinish1(2, array);
+        System.out.println(flag);
+    }
 }
