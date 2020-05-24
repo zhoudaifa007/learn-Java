@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+//https://www.youtube.com/watch?v=43w8tXWKSLw
 public class Leetcode0046 {
 
     public List<List<Integer>> permute(int[] nums) {

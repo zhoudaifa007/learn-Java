@@ -10,16 +10,15 @@ public class Leetcode0022 {
         return list;
     }
 
-    public void backtrack(List<String> list, String str, int open, int close, int max){
-
-        if(str.length() == max*2){
+    public void backtrack(List<String> list, String str, int open, int close, int n){
+        if(close == n){
             list.add(str);
             return;
         }
 
-        if(open < max)
-            backtrack(list, str+"(", open+1, close, max);
+        if(open < n)
+            backtrack(list, str+"(", open+1, close, n);
         if(close < open)
-            backtrack(list, str+")", open, close+1, max);
+            backtrack(list, str+")", open, close+1, n);
     }
 }

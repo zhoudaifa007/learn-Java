@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+//https://www.youtube.com/watch?v=aBL-aNWNmB4
 public class Leetcode0040 {
 
     public List<List<Integer>> combinationSum2(int[] cand, int target) {
@@ -22,8 +23,8 @@ public class Leetcode0040 {
         if (target < 0) return;
 
         for (int i = cur; i < cand.length; i++) {
-            //当前元素的值和之前的值相同，且不是首元素的时候才需要跳过，比如2，2，3， target=7时，此时第二个2不能提过
-            if (i !=cur && cand[i] == cand[i - 1]) continue;
+            //当前元素的值和之前的值相同，且不是首元素的时候才需要跳过，比如2，2，3， target=7时，此时第二个2不能跳过过
+            if (i != cur && cand[i] == cand[i - 1]) continue;
             //优化执行效率
             if (cand[i] > target) {
                 break;

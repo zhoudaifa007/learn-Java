@@ -10,7 +10,7 @@ import java.util.*;
  *
  * 349. Intersection of Two Arrays
  */
-public class Intersection {
+public class Leetcode0349 {
     public int[] intersection(int[] nums1, int[] nums2) {
         Arrays.sort(nums1);
         Arrays.sort(nums2);

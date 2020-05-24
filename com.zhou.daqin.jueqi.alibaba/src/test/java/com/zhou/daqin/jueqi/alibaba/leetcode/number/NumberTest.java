@@ -1,4 +1,4 @@
-package com.zhou.daqin.jueqi.alibaba.number;
+package com.zhou.daqin.jueqi.alibaba.leetcode.number;
 
 import org.junit.Test;
 import java.util.ArrayList;
