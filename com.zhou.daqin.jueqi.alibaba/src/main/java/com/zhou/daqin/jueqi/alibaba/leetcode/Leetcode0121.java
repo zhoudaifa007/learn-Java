@@ -10,6 +10,16 @@ public class Leetcode0121 {
         return maxSoFar;
     }
 
+    public int maxProfit1(int[] prices) {
+        int maxCur = 0, maxSoFar = 0;
+        for(int i = 1; i < prices.length; i++) {
+            //经典的写法
+            maxCur = Math.max(prices[i] - prices[i-1], maxCur += prices[i] - prices[i-1]);
+            maxSoFar = Math.max(maxCur, maxSoFar);
+        }
+        return maxSoFar;
+    }
+
 
     public int maxProfitByDp(int[] prices) {
         int[][] T = new int[prices.length][2];

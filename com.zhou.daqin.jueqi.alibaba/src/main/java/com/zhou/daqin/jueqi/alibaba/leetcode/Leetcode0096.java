@@ -1,5 +1,6 @@
 package com.zhou.daqin.jueqi.alibaba.leetcode;
 
+//https://www.youtube.com/watch?v=HWJEMKWzy-Q
 public class Leetcode0096 {
     public int numTrees(int n) {
         int[] array = new int[n + 1];
@@ -12,6 +13,6 @@ public class Leetcode0096 {
             }
         }
 
-        return array[n + 1];
+        return array[n];
     }
 }
