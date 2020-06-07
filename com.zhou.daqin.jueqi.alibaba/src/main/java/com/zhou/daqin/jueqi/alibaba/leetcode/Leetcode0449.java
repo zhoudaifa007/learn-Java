@@ -10,6 +10,7 @@ public class Leetcode0449 {
 
     private static final String SEP = ",";
     private static final String NULL = "null";
+
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
@@ -25,7 +26,6 @@ public class Leetcode0449 {
         }
         return sb.toString();
     }
-
     // Decodes your encoded data to tree.
     // pre-order traversal
     public TreeNode deserialize(String data) {
@@ -55,4 +55,5 @@ public class Leetcode0449 {
         root.right = getNode(q);
         return root;
     }
+
 }
