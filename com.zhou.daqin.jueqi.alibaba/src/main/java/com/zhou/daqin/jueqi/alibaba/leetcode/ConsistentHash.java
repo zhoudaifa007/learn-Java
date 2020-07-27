@@ -1,10 +1,10 @@
 package com.zhou.daqin.jueqi.alibaba.leetcode;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.util.List;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * Created by zhoudf2 on 2018-5-22.
@@ -15,6 +15,7 @@ public class ConsistentHash<S> { // S类封装了机器节点的信息 ，如nam
     private TreeMap<Long, S> nodes; // 虚拟节点
     private List<S> shards; // 真实机器节点
     private final int NODE_NUM = 100; // 每个机器节点关联的虚拟节点个数
+    Map<Integer, List<Long>> integerListMap = new HashMap<>();
 
     public ConsistentHash(List<S> shards) {
         super();
@@ -26,12 +27,16 @@ public class ConsistentHash<S> { // S类封装了机器节点的信息 ，如nam
         nodes = new TreeMap<Long, S>();
         for (int i = 0; i != shards.size(); ++i) { // 每个真实机器节点都需要关联虚拟节点
             final S shardInfo = shards.get(i);
-
-            for (int n = 0; n < NODE_NUM; n++)
+            for (int n = 0; n < NODE_NUM; n++) {
                 // 一个真实机器节点关联NODE_NUM个虚拟节点
-                nodes.put(hash("SHARD-" + i + "-NODE-" + n), shardInfo);
-
+                Long hashValue = hash("SHARD-" + i + "-NODE-" + n);
+                nodes.put(hashValue, shardInfo);
+                List<Long> longList = integerListMap.getOrDefault(i, new ArrayList<>());
+                longList.add(hashValue);
+                integerListMap.put(i, longList);
+            }
         }
+        System.out.println(JSONObject.toJSONString(integerListMap));
     }
 
     public S getShardInfo(String key) {
@@ -43,12 +48,12 @@ public class ConsistentHash<S> { // S类封装了机器节点的信息 ，如nam
     }
 
     /**
-     *  MurMurHash算法，是非加密HASH算法，性能很高，
-     *  比传统的CRC32,MD5，SHA-1（这两个算法都是加密HASH算法，复杂度本身就很高，带来的性能上的损害也不可避免）
-     *  等HASH算法要快很多，而且据说这个算法的碰撞率很低.
-     *  http://murmurhash.googlepages.com/
+     * MurMurHash算法，是非加密HASH算法，性能很高，
+     * 比传统的CRC32,MD5，SHA-1（这两个算法都是加密HASH算法，复杂度本身就很高，带来的性能上的损害也不可避免）
+     * 等HASH算法要快很多，而且据说这个算法的碰撞率很低.
+     * http://murmurhash.googlepages.com/
      */
-    private Long hash(String key) {
+    public Long hash(String key) {
 
         ByteBuffer buf = ByteBuffer.wrap(key.getBytes());
         int seed = 0x1234ABCD;
@@ -90,5 +95,6 @@ public class ConsistentHash<S> { // S类封装了机器节点的信息 ，如nam
         buf.order(byteOrder);
         return h;
     }
+
 
 }

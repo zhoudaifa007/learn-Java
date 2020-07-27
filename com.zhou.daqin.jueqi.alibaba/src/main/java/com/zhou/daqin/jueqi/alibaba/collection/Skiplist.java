@@ -45,7 +45,7 @@ public class Skiplist {
                 newSentinel.down = curPrev;
                 sentinels.add(curPrev.up);
             }
-            curPrev = curPrev.up;
+                curPrev = curPrev.up;
             //新建向上节点
             final Node newNode = new Node(toInsert.val);
             cur.up = newNode;

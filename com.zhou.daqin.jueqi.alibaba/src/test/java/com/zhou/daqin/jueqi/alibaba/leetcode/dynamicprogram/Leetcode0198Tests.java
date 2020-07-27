@@ -1,5 +1,6 @@
 package com.zhou.daqin.jueqi.alibaba.leetcode.dynamicprogram;
 
+import com.zhou.daqin.jueqi.alibaba.leetcode.Leetcode0198;
 import org.junit.Test;
 
 public class Leetcode0198Tests {

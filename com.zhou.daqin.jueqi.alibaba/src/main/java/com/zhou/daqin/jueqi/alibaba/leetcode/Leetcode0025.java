@@ -18,6 +18,17 @@ public class Leetcode0025 {
         return dummy.next;
     }
 
+    public ListNode buildList(int[] nums){
+        ListNode dummy = new ListNode(0);
+        ListNode head = dummy;
+        for(int num: nums) {
+            ListNode node = new  ListNode(num);
+            head.next = node;
+            head = head.next;
+        }
+        return dummy.next;
+    }
+
     //D-->1-->2-->3-->4-->5-->null， k = 3
     private ListNode reverse(ListNode prev, int k) {
         ListNode last = prev;

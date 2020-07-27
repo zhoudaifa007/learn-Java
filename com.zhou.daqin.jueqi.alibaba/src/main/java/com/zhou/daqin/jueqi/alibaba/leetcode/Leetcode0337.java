@@ -1,4 +1,4 @@
-package com.zhou.daqin.jueqi.alibaba.leetcode.dynamicprogram;
+package com.zhou.daqin.jueqi.alibaba.leetcode;
 
 import com.zhou.daqin.jueqi.alibaba.common.TreeNode;
 

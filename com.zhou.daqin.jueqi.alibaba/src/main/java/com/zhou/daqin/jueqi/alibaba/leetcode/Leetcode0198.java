@@ -1,4 +1,4 @@
-package com.zhou.daqin.jueqi.alibaba.leetcode.dynamicprogram;
+package com.zhou.daqin.jueqi.alibaba.leetcode;
 
 import java.util.Collections;
 import java.util.HashSet;

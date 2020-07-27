@@ -37,7 +37,7 @@ public class Leetcode0090 {
     private void subsetsWithDupHelper(int[] nums, int index, List<List<Integer>> res, List<Integer> cur) {
         res.add(new ArrayList<>(cur));
         for(int i = index; i < nums.length; i++) {
-            //去掉重复的条件
+            //当前元素不是首元素，且与前面的元素相同
             if( i != index && nums[i] == nums[i -1]) continue;
             cur.add(nums[i]);
             subsetsWithDupHelper(nums, i + 1, res, cur);

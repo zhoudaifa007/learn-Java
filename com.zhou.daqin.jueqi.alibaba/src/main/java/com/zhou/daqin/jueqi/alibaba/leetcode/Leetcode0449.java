@@ -2,9 +2,7 @@ package com.zhou.daqin.jueqi.alibaba.leetcode;
 
 import com.zhou.daqin.jueqi.alibaba.common.TreeNode;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class Leetcode0449 {
 
@@ -16,13 +14,18 @@ public class Leetcode0449 {
         StringBuilder sb = new StringBuilder();
         if (root == null) return NULL;
         //traverse it recursively if you want to, I am doing it iteratively here
-        Stack<TreeNode> st = new Stack<>();
-        st.push(root);
-        while (!st.empty()) {
-            root = st.pop();
-            sb.append(root.val).append(SEP);
-            if (root.right != null) st.push(root.right);
-            if (root.left != null) st.push(root.left);
+
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        TreeNode p = root;
+        while(!stack.isEmpty() || p != null) {
+            if(p != null) {
+                stack.push(p);
+                sb.append(p.val).append(SEP);  // Add before going to children
+                p = p.left;
+            } else {
+                TreeNode node = stack.pop();
+                p = node.right;
+            }
         }
         return sb.toString();
     }

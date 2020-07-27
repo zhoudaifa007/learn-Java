@@ -42,7 +42,7 @@ public class BinaryTreeTraversal {
 
     public List<Integer> postorderTraversal(TreeNode root) {
         LinkedList<Integer> result = new LinkedList<>();
-        Deque<TreeNode> stack = new ArrayDeque<>();
+        Stack<TreeNode> stack = new Stack<>();
         TreeNode p = root;
         while(!stack.isEmpty() || p != null) {
             if(p != null) {
