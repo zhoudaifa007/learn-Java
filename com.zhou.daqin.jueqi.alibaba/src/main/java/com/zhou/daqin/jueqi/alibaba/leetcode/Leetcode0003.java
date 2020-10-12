@@ -1,8 +1,6 @@
 package com.zhou.daqin.jueqi.alibaba.leetcode;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Leetcode0003 {
     public int lengthOfLongestSubstring(String s) {
@@ -10,6 +8,8 @@ public class Leetcode0003 {
         HashMap<Character, Integer> map = new HashMap<Character, Integer>();
         int max = 0;
         for (int i = 0, j = 0; i < s.length(); ++i) {
+            //abba
+            //防止左侧指针再向左移动
             if (map.containsKey(s.charAt(i))) {
                 j = Math.max(j, map.get(s.charAt(i)) + 1);
             }
@@ -52,5 +52,18 @@ public class Leetcode0003 {
             }
         }
         return Arrays.stream(array).max().getAsInt();
+    }
+
+    public int lengthOfLongestSubstring3(String s) {
+        Queue<Character> queue = new LinkedList<>();
+        int res = 0;
+        for (char c : s.toCharArray()) {
+            while (queue.contains(c)) {
+                queue.poll();
+            }
+            queue.offer(c);
+            res = Math.max(res, queue.size());
+        }
+        return res;
     }
 }

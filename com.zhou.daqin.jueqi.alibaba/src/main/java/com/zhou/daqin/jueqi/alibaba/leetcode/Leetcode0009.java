@@ -10,4 +10,25 @@ public class Leetcode0009 {
         }
         return (x==rev || x==rev/10);
     }
+
+    public boolean isPalindrome1(int x) {
+        if(x < 0) {
+            return false;
+        }
+        String s = String.valueOf(x);
+        int start = 0;
+        int end = s.length() - 1;
+
+        while (start < end) {
+            if(s.charAt(start) != s.charAt(end)) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+
+        return true;
+    }
+
+
 }

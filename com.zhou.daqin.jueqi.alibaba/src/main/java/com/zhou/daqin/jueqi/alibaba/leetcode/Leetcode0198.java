@@ -1,7 +1,6 @@
 package com.zhou.daqin.jueqi.alibaba.leetcode;
 
-import java.util.Collections;
-import java.util.HashSet;
+
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -30,5 +29,22 @@ public class Leetcode0198 {
 //            System.out.println(s);
 
         return dp[dp.length - 1];
+    }
+
+    public int rob2(int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        }
+        int[] r = new int[nums.length];
+        r[0]  = nums[0];
+        int[] nr  = new int[nums.length];
+        nr[0] = 0;
+
+        for(int i = 1; i < nums.length; i++) {
+            r[i] = nr[i - 1]  + nums[i];
+            nr[i] = Math.max(r[i - 1], nr[i - 1]);
+        }
+
+        return Math.max(r[nums.length - 1], nr[nums.length - 1]);
     }
 }

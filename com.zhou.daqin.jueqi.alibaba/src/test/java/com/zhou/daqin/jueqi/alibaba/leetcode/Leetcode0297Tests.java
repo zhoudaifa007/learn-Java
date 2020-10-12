@@ -18,8 +18,53 @@ public class Leetcode0297Tests {
         treeNode3.right = treeNode5;
 
         Leetcode0297 leetcode0297 = new Leetcode0297();
-        String res = leetcode0297.serialize(treeNode1);
-        TreeNode treeNode = leetcode0297.deserialize(res);
+        String res = leetcode0297.serialize1(treeNode1);
+        TreeNode treeNode = leetcode0297.deserialize1(res);
+        System.out.println("ok");
+    }
+
+    @Test
+    public void test2(){
+        TreeNode treeNode1 = new TreeNode(1);
+        TreeNode treeNode2 = new TreeNode(2);
+        TreeNode treeNode3 = new TreeNode(3);
+        treeNode1.left = treeNode2;
+        treeNode1.right = treeNode3;
+
+
+        Leetcode0297 leetcode0297 = new Leetcode0297();
+        String res = leetcode0297.serialize1(treeNode1);
+        TreeNode treeNode = leetcode0297.deserialize1(res);
+        System.out.println("ok");
+    }
+
+    @Test
+    public void test3(){
+        TreeNode treeNode1 = new TreeNode(1);
+        TreeNode treeNode2 = new TreeNode(2);
+        TreeNode treeNode3 = new TreeNode(3);
+        treeNode1.left = treeNode2;
+//        treeNode1.right = treeNode3;
+
+
+        Leetcode0297 leetcode0297 = new Leetcode0297();
+        String res = leetcode0297.serialize1(treeNode1);
+        TreeNode treeNode = leetcode0297.deserialize1(res);
+        System.out.println("ok");
+    }
+
+    @Test
+    public void test4(){
+        TreeNode treeNode1 = new TreeNode(1);
+        TreeNode treeNode2 = new TreeNode(2);
+        TreeNode treeNode3 = new TreeNode(3);
+//        treeNode1.left = treeNode2;
+        treeNode1.right = treeNode3;
+
+
+        Leetcode0297 leetcode0297 = new Leetcode0297();
+        String res = leetcode0297.serialize1(treeNode1);
+        TreeNode treeNode = leetcode0297.deserialize1(res);
         System.out.println("ok");
     }
 

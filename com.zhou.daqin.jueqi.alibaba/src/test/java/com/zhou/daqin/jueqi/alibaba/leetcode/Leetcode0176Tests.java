@@ -26,4 +26,11 @@ public class Leetcode0176Tests {
         String  str = Leetcode0179.largestNumber(array);
         System.out.println(str);
     }
+
+    @Test
+    public void test4(){
+        int[] array = {121,12};
+        String  str = Leetcode0179.largestNumber(array);
+        System.out.println(str);
+    }
 }

@@ -2,6 +2,9 @@ package com.zhou.daqin.jueqi.alibaba.leetcode;
 
 import com.zhou.daqin.jueqi.alibaba.common.TreeNode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Leetcode0116 {
     public TreeNode connect(TreeNode root) {
         //如果是null或者叶子节点直接返回
@@ -14,6 +17,30 @@ public class Leetcode0116 {
         }
         connect(root.left);
         connect(root.right);
+        return root;
+    }
+
+    //这种解法比较直观
+    public TreeNode connect2(TreeNode root) {
+        if(root == null) {
+            return root;
+        }
+        List<TreeNode> cur = new ArrayList<>();
+        cur.add(root);
+        while(cur.size() > 0) {
+            int size = cur.size();
+            List<TreeNode> next = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = cur.get(i);
+                if(node.left != null) next.add(node.left);
+                if(node.right != null) next.add(node.right);
+            }
+
+            for(int i = 0 ; i < size  - 1; i++) {
+                cur.get(i).next = cur.get(i + 1);
+            }
+            cur = next;
+        }
         return root;
     }
 

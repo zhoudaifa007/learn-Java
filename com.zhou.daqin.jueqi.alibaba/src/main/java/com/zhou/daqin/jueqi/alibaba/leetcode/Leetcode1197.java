@@ -33,6 +33,7 @@ public class Leetcode1197 {
                 for (int[] d : DIRECTIONS) {
                     int newX = curX + d[0];
                     int newY = curY + d[1];
+                    //这里设置范围很重要，否则容易超时
                     if (!visited.contains(newX + "," + newY) && newX >= -1 && newY >= -1) {
                         queue.add(new int[] {newX, newY});
                         visited.add(newX + "," + newY);

@@ -22,10 +22,8 @@ public class PrintChar {
     private  static AtomicInteger seq = new AtomicInteger(0);
 
     //打印次数
-    private static final int PRINT_COUNT = 3;
+    private static final int PRINT_COUNT = 4;
 
-    //防止主线程退出
-    private static CountDownLatch latch = new CountDownLatch(9);
 
     private static void init(){
         conditionMap.put('a', lock.newCondition());
@@ -45,8 +43,6 @@ public class PrintChar {
         a.start();
         b.start();
         c.start();
-
-        latch.await();
     }
 
 
@@ -71,7 +67,6 @@ public class PrintChar {
                     seq.getAndIncrement();
                     Condition nextCondition = getNextCondition(ch);
                     nextCondition.signal();
-                    latch.countDown();
                 }
 
             } catch (Exception e) {

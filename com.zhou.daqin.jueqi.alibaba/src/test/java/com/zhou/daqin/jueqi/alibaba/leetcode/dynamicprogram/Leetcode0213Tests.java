@@ -25,4 +25,11 @@ public class Leetcode0213Tests {
         Leetcode0213 leetcode0213 = new Leetcode0213();
         System.out.println(leetcode0213.rob(array));
     }
+
+    @Test
+    public void test4(){
+        int[] array = {1,7,2,4,5};
+        Leetcode0213 leetcode0213 = new Leetcode0213();
+        System.out.println(leetcode0213.rob(array));
+    }
 }

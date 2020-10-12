@@ -15,8 +15,8 @@ public class Leetcode0337 {
 
         int[] arrayLeft = helper(node.left);
         int[] arrayRight = helper(node.right);
-        array[0] = arrayLeft[1] + arrayRight[1] + node.val;
-        array[1] = Math.max(arrayLeft[0],arrayLeft[1]) + Math.max(arrayRight[0],arrayRight[1]) ;
+        array[1] = arrayLeft[0] + arrayRight[0] + node.val;
+        array[0] = Math.max(arrayLeft[0],arrayLeft[1]) + Math.max(arrayRight[0],arrayRight[1]) ;
         return array;
     }
 
