@@ -1,8 +1,6 @@
 package com.zhou.daqin.jueqi.alibaba.leetcode;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created by Daifa on 2018/4/15.
@@ -88,6 +86,29 @@ public class Graph {
         }
     }
 
+    void BFS_Map1() {
+        System.out.println("ok");
+        Set<String> stringSet = new HashSet();
+        Queue<Integer> queue = new LinkedList<Integer>();
+        for (int i = 0; i < number; i++) {
+            if (!stringSet.contains(vertexs[i])) {
+                stringSet.add(vertexs[i]);
+                System.out.print(vertexs[i] + " ");
+                queue.add(i);
+                while (!queue.isEmpty()) {
+                    int k = queue.poll();
+                    for (int j = 0; j < number; j++) {
+                        if (edges[k][j] == 1 && !stringSet.contains(vertexs[j])) {
+                            stringSet.add(vertexs[j]);
+                            System.out.print(vertexs[j] + " ");
+                            queue.add(j);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Graph graph = new Graph();
 //        System.out.println("DFS递归:");
@@ -98,5 +119,6 @@ public class Graph {
         System.out.println();
         System.out.println("BFS非递归:");
         graph.BFS_Map();
+        graph.BFS_Map1();
     }
 }
