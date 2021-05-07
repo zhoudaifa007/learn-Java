@@ -3,6 +3,7 @@ package com.zhou.daqin.jueqi.alibaba.leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
+//https://www.youtube.com/watch?v=dfGhf-Ko0L4&ab_channel=basketwangCoding
 public class Leetcode0054 {
 
     public List<Integer> spiralOrder(int[][] matrix) {
@@ -16,36 +17,31 @@ public class Leetcode0054 {
         int left = 0;
         int right = matrix[0].length - 1;
 
-        while (true) {
+        while(up < down && left < right) {
+            for(int i = left; i < right; i++) ans.add(matrix[up][i]);
+            for(int i = up; i < down; i++) ans.add(matrix[i][right]);
+            for(int i = right; i > left; i--) ans.add(matrix[down][i]);
+            for(int i = down; i > up; i--) ans.add(matrix[i][left]);
 
-            for(int i = left ; i <= right; i++) {
+            up++;
+            left++;
+            down--;
+            right--;
+        }
+
+        //一定不能直接写else，必须是else if
+        if(up == down && left != right) {
+            for(int i = left; i <= right; i++)
                 ans.add(matrix[up][i]);
-            }
-            if(++up > down) {
-                break;
-            }
+        }
 
-            for(int i = up; i <= down; i++){
-                ans.add(matrix[i][right]);
-            }
-
-            if(--right < left) {
-                break;
-            }
-
-            for(int i = right; i >= left; i--){
-                ans.add(matrix[down][i]);
-            }
-            if(--down < up) {
-                break;
-            }
-
-            for(int i = down; i >= up; i--){
+        if (left == right && up != down) {
+            for(int i = up; i <= down; i++)
                 ans.add(matrix[i][left]);
-            }
-            if(++left > right) {
-                break;
-            }
+        }
+
+        if(up == down && left == right && matrix.length % 2 == 1) {
+            ans.add(matrix[up][left]);
         }
 
         return ans;

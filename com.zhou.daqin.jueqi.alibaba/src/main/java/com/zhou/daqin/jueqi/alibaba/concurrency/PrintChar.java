@@ -2,7 +2,6 @@ package com.zhou.daqin.jueqi.alibaba.concurrency;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -22,7 +21,7 @@ public class PrintChar {
     private  static AtomicInteger seq = new AtomicInteger(0);
 
     //打印次数
-    private static final int PRINT_COUNT = 4;
+    private static final int PRINT_COUNT = 20;
 
 
     private static void init(){
