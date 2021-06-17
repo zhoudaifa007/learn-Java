@@ -5,18 +5,18 @@ import java.util.Arrays;
 public class Leetcode0043 {
 
     public String multiply(String num1, String num2) {
-
-
         int length1 = num1.length();
         int length2 = num2.length();
         int[] a1 = new int[length1];
         int[] a2 = new int[length2];
         for(int i = 0; i < length1; i++) {
+            //低位反转
             a1[length1 - 1 -i] = num1.charAt(i) - '0';
         }
 
         for(int i = 0; i < length2; i++) {
-            a2[length2 - 1 -i] = num2.charAt(i) - '0';
+            //低位反转
+            a2[length2 - 1 - i] = num2.charAt(i) - '0';
         }
         String s = "";
         int[] res = multiply(a1,a2);

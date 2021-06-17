@@ -9,4 +9,10 @@ public class Leetcode0043Tests {
         Leetcode0043 leetcode0043 = new Leetcode0043();
         leetcode0043.multiply("2","3");
     }
+
+    @Test
+    public void test2() {
+        Leetcode0043 leetcode0043 = new Leetcode0043();
+        leetcode0043.multiply("12","34");
+    }
 }
