@@ -1,14 +1,15 @@
 package com.zhou.daqin.jueqi.alibaba.leetcode;
 
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Daifa on 2018/4/7.
  */
 public class LRUCache {
 
-    private Hashtable<Integer, DLinkedNode>
-            cache = new Hashtable<Integer, DLinkedNode>();
+    private Map<Integer, DLinkedNode>
+            cache = new HashMap<>();
     private int count;
     private int capacity;
     private DLinkedNode head, tail;

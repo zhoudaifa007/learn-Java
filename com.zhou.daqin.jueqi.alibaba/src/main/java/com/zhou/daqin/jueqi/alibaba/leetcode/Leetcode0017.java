@@ -11,11 +11,11 @@ public class Leetcode0017 {
     Map<Character, String> map = new HashMap<>();
 
     public List<String> letterCombinations(String digits) {
+        if(digits.equals("")) {
+            return new ArrayList<>();
+        }
         initMap();
         List<String> res = letterCombinations(digits, digits.length());
-        if(res.size() == 1) {
-            res = new ArrayList<>();
-        }
         return res;
     }
 

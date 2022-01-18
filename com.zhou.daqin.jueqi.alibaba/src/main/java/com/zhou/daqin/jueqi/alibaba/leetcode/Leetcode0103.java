@@ -36,31 +36,28 @@ public class Leetcode0103 {
         travel(curr.right, sol, level + 1);
     }
 
-
+    //bfs的队列可能有一个，也可能用是多个
     public List<List<Integer>> zigzagLevelOrder1(TreeNode root) {
         List<List<Integer>> ans = new ArrayList<>();
         if(root == null) {
             return ans;
         }
         List<TreeNode> cur = new ArrayList<>();
-        List<TreeNode> next = new ArrayList<>();
         cur.add(root);
         int count = 0;
         while(cur.size() > 0) {
             int size = cur.size();
-            next = new ArrayList<>();
-            for (int i = 0; i < size; i++) {
-                TreeNode node = cur.get(i);
-                if(node.left != null) next.add(node.left);
-                if(node.right != null) next.add(node.right);
-            }
+            List<TreeNode> next  = new ArrayList<>();
             List<Integer> line = new ArrayList<>();
             for (int i = 0; i < size; i++) {
+                TreeNode node = cur.get(i);
                 if (count % 2 == 0) {
-                    line.add(cur.get(i).val);
+                    line.add(node.val);
                 } else {
-                    line.add(0,cur.get(i).val);
+                    line.add(0, node.val);
                 }
+                if(node.left != null) next.add(node.left);
+                if(node.right != null) next.add(node.right);
             }
             cur = next;
             count  = count + 1;

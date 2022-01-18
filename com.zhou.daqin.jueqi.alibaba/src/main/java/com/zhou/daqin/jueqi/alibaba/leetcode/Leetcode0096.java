@@ -8,8 +8,8 @@ public class Leetcode0096 {
         array[1] = 1;
 
         for (int i = 2; i <= n; i++) {
-            for(int j = 0; j <i; j++) {
-                array[i] += array[j] * array[ i - j -1];
+            for (int j = 0; j < i; j++) {
+                array[i] += array[j] * array[i - j - 1];
             }
         }
 

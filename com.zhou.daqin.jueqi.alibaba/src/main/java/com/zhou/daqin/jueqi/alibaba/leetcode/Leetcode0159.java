@@ -1,6 +1,6 @@
 package com.zhou.daqin.jueqi.alibaba.leetcode;
 
-import java.util.HashMap;
+import java.util.*;
 
 public class Leetcode0159 {
     public int lengthOfLongestSubstringTwoDistinct(String s) {
@@ -27,5 +27,26 @@ public class Leetcode0159 {
             maxLength = Math.max(maxLength, hi - lo);
         }
         return maxLength;
+    }
+
+    public int lengthOfLongestSubstringTwoDistinct1(String s) {
+        Queue<Character> queue = new LinkedList<>();
+        int res = 0;
+        for (char c : s.toCharArray()) {
+            queue.offer(c);
+            int distNum = getDictNum(queue);
+            while (distNum > 2) {
+                queue.poll();
+                distNum = getDictNum(queue);
+            }
+            res = Math.max(res, queue.size());
+        }
+        return res;
+    }
+
+
+    private int getDictNum(Queue<Character> queue) {
+        Set<Character> set = new HashSet<>(queue);
+        return set.size();
     }
 }

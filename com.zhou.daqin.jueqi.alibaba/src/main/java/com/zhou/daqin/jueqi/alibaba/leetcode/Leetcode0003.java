@@ -33,9 +33,8 @@ public class Leetcode0003 {
     public int lengthOfLongestSubstring2(String s) {
         if (s.length() == 0) return 0;
         int[] array = new int[s.length()];
-        Arrays.fill(array, 1);
+        array[0] = 1;
         Map<Character, Integer> map = new HashMap<>();
-        int max = 1;
         map.put(s.charAt(0), 0);
         for (int i = 1; i < s.length(); ++i) {
             if (!map.containsKey(s.charAt(i))) {
@@ -45,6 +44,7 @@ public class Leetcode0003 {
                 array[i] = i - map.get(s.charAt(i));
                 int j = map.get(s.charAt(i));
                 map.clear();
+                j = j + 1;
                 while (j <= i) {
                     map.put(s.charAt(j), j);
                     j++;
