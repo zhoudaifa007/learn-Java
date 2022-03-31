@@ -16,7 +16,7 @@
         <jdk-version>1.8</jdk-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <commons.lang.version>2.6</commons.lang.version>
-        <org.springframework.boot.version>1.5.1.RELEASE</org.springframework.boot.version>
+        <org.springframework.boot.version>2.5.12</org.springframework.boot.version>
         <junit-version>4.12</junit-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <aliyun-public-url>http://maven.aliyun.com/nexus/content/groups/public/</aliyun-public-url>
