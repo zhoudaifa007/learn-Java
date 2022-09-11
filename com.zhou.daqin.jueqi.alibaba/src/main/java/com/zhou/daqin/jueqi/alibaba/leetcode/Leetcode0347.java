@@ -22,10 +22,20 @@ public class Leetcode0347 {
             Helper helper = new Helper();
             helper.key = e.getKey();
             helper.val = e.getValue();
+            priorityQueue.offer(helper);
+            if(priorityQueue.size() > k) {
+                priorityQueue.poll();
+            }
         }
 
+        int[] res = new int[priorityQueue.size()];
+        int i = 0;
+        while (!priorityQueue.isEmpty()) {
+            res[i++] = priorityQueue.poll().key;
 
-        return null;
+        }
+
+        return res;
     }
 
     class Helper {

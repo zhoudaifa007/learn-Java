@@ -7,30 +7,25 @@ import java.util.Map;
 /**
  * Created by Daifa on 2018/4/7.
  */
-public class LRUCacheByJdk {
+public class LRUCacheByJdk extends LinkedHashMap<Integer,Integer> {
 
-    private Map<Integer, Integer> map;
+
+    private int capacity;
+
+    @Override
+    protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
+        return size() > capacity;
+    }
 
     public LRUCacheByJdk(int capacity) {
-        map = new LinkedHashMap<Integer, Integer>(capacity, 0.75f, true) {
-            // 定义put后的移除规则，大于容量就删除eldest
-            protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
-                return size() > capacity;
-            }
-        };
+        super(capacity, 0.75f, true);
     }
 
     public int get(int key) {
-        Integer value = map.get(key);
-        if (value == null) {
-            return -1;
-        } else {
-            map.put(key, value);
-            return value;
-        }
+        return super.getOrDefault(key, -1);
     }
 
     public void put(int key, int value) {
-        map.put(key, value);
+        super.put(key, value);
     }
 }

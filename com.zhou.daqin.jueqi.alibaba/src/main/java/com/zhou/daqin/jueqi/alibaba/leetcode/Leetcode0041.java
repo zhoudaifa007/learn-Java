@@ -1,35 +1,39 @@
 package com.zhou.daqin.jueqi.alibaba.leetcode;
 
-import java.util.Arrays;
-
 public class Leetcode0041 {
-    public void nextPermutation(int[] nums) {
-        if(nums == null || nums.length == 1) {
-            return;
-        }
+    public int firstMissingPositive(int[] nums) {
+        int n = nums.length;
 
-        int replace = nums.length - 2;
-        while (replace >=0) {
-            if(nums[replace] < nums[replace + 1]) {
-                break;
+        // 1. mark numbers (num < 0) and (num > n) with a special marker number (n+1)
+        // (we can ignore those because if all number are > n then we'll simply return 1)
+        for (int i = 0; i < n; i++) {
+            if (nums[i] <= 0 || nums[i] > n) {
+                nums[i] = n + 1;
             }
-            replace--;
+        }
+        // note: all number in the array are now positive, and on the range 1..n+1
+
+        // 2. mark each cell appearing in the array, by converting the index for that number to negative
+        for (int i = 0; i < n; i++) {
+            int num = Math.abs(nums[i]);
+            if (num > n) {
+                continue;
+            }
+            num--; // -1 for zero index based array (so the number 1 will be at pos 0)
+            if (nums[num] > 0) { // prevents double negative operations
+                nums[num] = -1 * nums[num];
+            }
         }
 
-        if(replace < 0) {
-            Arrays.sort(nums);
-            return;
+        // 3. find the first cell which isn't negative (doesn't appear in the array)
+        for (int i = 0; i < n; i++) {
+            if (nums[i] >= 0) {
+                return i + 1;
+            }
         }
 
-        int gtIndex = replace + 1;
-        while (gtIndex < nums.length && nums[gtIndex] > nums[replace]) {
-            gtIndex++;
-        }
-
-        int temp = nums[replace];
-        nums[replace] = nums[gtIndex - 1];
-        nums[gtIndex - 1] = temp;
-
-        Arrays.sort(nums, replace + 1, nums.length);
+        // 4. no positive numbers were found, which means the array contains all numbers 1..n
+        return n + 1;
     }
+
 }

@@ -10,6 +10,7 @@ public class Leetcode0005 {
         //二位数组的斜形遍历
         for (int d = 0; d < n; d++) {
             for (int i = 0, j = d; j < n; i++, j++) {
+                System.out.printf("%d   %d \n", i, j);
                 if (d == 0) {
                     //one length substring
                     dp[i][j] = true;

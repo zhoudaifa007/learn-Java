@@ -5,7 +5,10 @@ import java.util.PriorityQueue;
 public class Leetcode0215 {
 
     public int findKthLargest(int[] nums, int k) {
-        final PriorityQueue<Integer> pq = new PriorityQueue<>();
+        //默认是个小顶堆
+        final PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> a - b);
+
+
         for (int val : nums) {
             pq.offer(val);
 
